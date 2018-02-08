@@ -4,5 +4,9 @@
     "routes": {
       "/node_modules": "node_modules"
     }
-  }
+  },
+  "port": 8100,
+  "browser":["Google Chrome","firefox", *"C:\\Program Files (x86)\\Google\\Chrome\\Application\\Chrome.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe"],
+  "files": ["./**/*.{html,htm,css,js}"]
+  
 }
