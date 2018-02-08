@@ -46,7 +46,8 @@
                                  [style.width.px]="imageWidth" 
                                  [style.margin.px]="imageMargin">
                         </td>
-                        <td><a [routerLink]="['/products', product.id]">
+                        <td><a [routerLink]="['/products', product.id]"
+                                [queryParams]="{filterBy: listFilter, showImage: showImage}">
                             {{product.productName}}
                             </a>
                         </td>
@@ -57,8 +58,10 @@
                             <ai-star [rating]="product.starRating">
                             </ai-star>
                        </td>
-                       <td>
-                            <a class="btn btn-primary" [routerLink]="['/products', product.id, 'edit']">
+                       <td><!-- add query Params key value information  -->
+                            <a class="btn btn-primary" [routerLink]="['/products', product.id, 'edit']"
+                            
+                            [queryParams]="{ filterBy: listFilter, showImage: showImage }">
                                 Edit
                             </a>
                         </td>
