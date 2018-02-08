@@ -14,7 +14,7 @@ export class ProductDetailComponent implements OnInit {
 
 
     constructor(private productService: ProductService, private route: ActivatedRoute) {
-        console.log(this.route.snapshot.params['id']);
+        console.log('this is the id: ' + this.route.snapshot.params['id']);
      }
 
      ngOnInit(): void {
@@ -25,7 +25,7 @@ export class ProductDetailComponent implements OnInit {
         // OBSERVABLE
         this.route.params.subscribe(
             params => {
-                let id = params['id'];
+                let id = +params['id'];
                 this.getProduct(id);
             }
         );

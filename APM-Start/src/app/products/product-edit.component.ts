@@ -23,15 +23,15 @@ export class ProductEditComponent implements OnInit {
     ngOnInit(): void {
 
         // SNAPSHOT
-        let id = +this.route.snapshot.params['id'];
-        this.getProduct(id);
+        // let id = +this.route.snapshot.params['id'];
+        // this.getProduct(id);
         // OBSERVABLE
-        // this.route.params.subscribe(
-        //     params => {
-        //         let oid: number = params['id'];
-        //         this.getProduct(oid);
-        //     }
-        // );
+        this.route.params.subscribe(
+            params => {
+                let oid = +params['id'];
+                this.getProduct(oid);
+            }
+        );
     }
     getProduct(id: number): void {
         this.productService.getProduct(id)
