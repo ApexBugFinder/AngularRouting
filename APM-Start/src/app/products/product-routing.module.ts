@@ -10,7 +10,7 @@ import { ProductResolver } from './product-resolver.service';
         RouterModule.forChild([
             { path: 'products', component: ProductListComponent },
             { path: 'products/:id', component: ProductDetailComponent, resolve: {product: ProductResolver} },
-            { path: 'products/:id/edit', component: ProductEditComponent, resolve: { product: ProductRe} }
+            { path: 'products/:id/edit', component: ProductEditComponent, resolve: {product: ProductResolver} }
         ])
     ],
     exports: [ RouterModule ]

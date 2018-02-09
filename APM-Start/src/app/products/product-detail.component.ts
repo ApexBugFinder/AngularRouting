@@ -13,27 +13,14 @@ export class ProductDetailComponent implements OnInit {
     errorMessage: string;
 
 
-    constructor(private productService: ProductService, private route: ActivatedRoute) {
+    
+    constructor(private route: ActivatedRoute) {
         console.log('this is the id: ' + this.route.snapshot.params['id']);
      }
 
      ngOnInit(): void {
-         // SNAPSHOT
-        // let id = +this.route.snapshot.params['id'];
-        // this.getProduct(id); 
-
-        // OBSERVABLE
-        this.route.params.subscribe(
-            params => {
-                let id = +params['id'];
-                this.getProduct(id);
-            }
-        );
-
+       // component no longer pulls data from the product service or need getProduct method
+       // it now gets all the data from the resolver in the route
+        this.product = this.route.snapshot.data['product'];
      }
-    getProduct(id: number) {
-        this.productService.getProduct(id).subscribe(
-            product => this.product = product,
-            error => this.errorMessage = <any>error);
-    }
 }
