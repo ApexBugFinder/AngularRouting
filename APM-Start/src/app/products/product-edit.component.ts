@@ -21,25 +21,14 @@ export class ProductEditComponent implements OnInit {
                 private route: ActivatedRoute) { }
 
     ngOnInit(): void {
+    // only needs to pull data from the route resolver
+    //  but this causes problem if you want to switch to Add Product and 
+    // change the product from params being passed via routerLink
+    // you would need an observable
+      this.onProductRetrieved(this.route.snapshot.data['product']);
 
-        // SNAPSHOT
-        // let id = +this.route.snapshot.params['id'];
-        // this.getProduct(id);
-        // OBSERVABLE
-        this.route.params.subscribe(
-            params => {
-                let oid = +params['id'];
-                this.getProduct(oid);
-            }
-        );
     }
-    getProduct(id: number): void {
-        this.productService.getProduct(id)
-            .subscribe(
-                (product: IProduct) => this.onProductRetrieved(product),
-                (error: any) => this.errorMessage = <any>error
-            );
-    }
+    
 
     onProductRetrieved(product: IProduct): void {
         this.product = product;
