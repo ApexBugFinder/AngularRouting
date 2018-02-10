@@ -19,6 +19,8 @@ export class ProductEditTagsComponent implements OnInit {
         this.route.parent.data.subscribe(data => {
             this.product = data['product'];
         });
+
+
     }
 
     // Add the defined tags

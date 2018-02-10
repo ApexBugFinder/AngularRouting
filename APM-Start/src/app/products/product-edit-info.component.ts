@@ -20,6 +20,12 @@ export class ProductEditInfoComponent implements OnInit {
         // immediately updated on the child routes and components
         this.route.parent.data.subscribe(data => {
             this.product = data['product'];
+
+        //  Reset Validation is required if the observable is supplied with new data
+        if (this.productForm) {
+            this.productForm.reset();
+        }
         });
+
     }
 }
