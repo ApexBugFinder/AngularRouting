@@ -11,10 +11,15 @@ export class ProductEditInfoComponent implements OnInit {
     @ViewChild(NgForm) productForm: NgForm;
 
     errorMessage: string;
-    product = { id: 1, productName: 'test', productCode: 'test' };
+    product: IProduct;
 
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit(): void {
+        // Attains parent data via observable so that whenever the data source is updated it is 
+        // immediately updated on the child routes and components
+        this.route.parent.data.subscribe(data => {
+            this.product = data['product'];
+        });
     }
 }
