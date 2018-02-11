@@ -6,8 +6,16 @@
     <div class="panel-body" *ngIf="product">
         <!-- Added links -->
         <div class="wizard">
-            <a [routerLink]="['info']">Basic Information</a>
-            <a [routerLink]="['tags']">Search Tags</a>
+            <a [routerLink]="['info']" routerLinkActive="active">Basic Information 
+                    <span [
+                        ngClass]="{'glyphicon glyphicon-exclamation-sign': !isValid('info')}">
+                    </span>
+            </a>
+            <a [routerLink]="['tags']" routerLinkActive="active">Search Tags 
+                    <span 
+                        [ngClass]="{'glyphicon glyphicon-exclamation-sign': !isValid('tags')}">
+                    </span>
+            </a>
         </div>
 
         <router-outlet></router-outlet>
