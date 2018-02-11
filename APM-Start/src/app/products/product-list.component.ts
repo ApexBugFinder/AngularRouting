@@ -28,11 +28,11 @@ export class ProductListComponent implements OnInit {
         this.listFilter = this.route.snapshot.queryParams['filterBy'] || '';
         // Params are just text so you check to see if string is true and the result is a boolean
         this.showImage = this.route.snapshot.queryParams['showImage'] === 'true';
-        
+
         // Subscribe to get prefetched data by ProductsResolver
         this.route.data.subscribe( data => {
             this.products = data['products'];
         });
-    
+
     }
 }
