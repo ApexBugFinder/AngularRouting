@@ -3,14 +3,18 @@
         <div class="container-fluid">
             <a class="navbar-brand">{{pageTitle}}</a>
             <ul class="nav navbar-nav">
-                <li>
-                    <a [routerLink]="['/welcome']">Home</a>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/welcome']" 
+                        >Home</a>
                 </li>
-                <li>
-                    <a [routerLink]="['/products']">Product List</a>
+                <li routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ 'exact': true }">
+                    <a [routerLink]="['/products']" 
+                        >Product List</a>
                 </li>
-                <li>
-                    <a [routerLink]="['/products', 0, 'edit']">Add Product</a>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/products', 0, 'edit']" 
+                        >Add Product</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
